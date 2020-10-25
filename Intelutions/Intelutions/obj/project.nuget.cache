@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "M3/y3wUV4psLFCX+sPkqlt3SgdDokJDNk2Ab7vaWY2xx7H4bJ0XVc2EsQIAJq4F85X4BLtvS4VoQd0ckDgQ11Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Emanuel\\source\\repos\\Intelutions\\Intelutions\\Intelutions.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.razor.design\\2.1.2\\microsoft.aspnetcore.razor.design.2.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

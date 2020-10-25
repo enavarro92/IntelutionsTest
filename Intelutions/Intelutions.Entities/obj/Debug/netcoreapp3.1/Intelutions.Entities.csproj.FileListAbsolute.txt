@@ -1,0 +1,9 @@
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\bin\Debug\netcoreapp3.1\Intelutions.Entities.deps.json
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\bin\Debug\netcoreapp3.1\Intelutions.Entities.dll
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\bin\Debug\netcoreapp3.1\Intelutions.Entities.pdb
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\obj\Debug\netcoreapp3.1\Intelutions.Entities.csprojAssemblyReference.cache
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\obj\Debug\netcoreapp3.1\Intelutions.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\obj\Debug\netcoreapp3.1\Intelutions.Entities.AssemblyInfoInputs.cache
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\obj\Debug\netcoreapp3.1\Intelutions.Entities.AssemblyInfo.cs
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\obj\Debug\netcoreapp3.1\Intelutions.Entities.dll
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Entities\obj\Debug\netcoreapp3.1\Intelutions.Entities.pdb

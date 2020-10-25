@@ -1,0 +1,15 @@
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\bin\Debug\netcoreapp3.1\Intelutions.Data.deps.json
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\bin\Debug\netcoreapp3.1\Intelutions.Data.dll
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.csprojAssemblyReference.cache
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.AssemblyInfoInputs.cache
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.AssemblyInfo.cs
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\bin\Debug\netcoreapp3.1\Intelutions.Data.runtimeconfig.json
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\bin\Debug\netcoreapp3.1\Intelutions.Data.runtimeconfig.dev.json
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\bin\Debug\netcoreapp3.1\Intelutions.Data.pdb
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\bin\Debug\netcoreapp3.1\Intelutions.Entities.dll
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\bin\Debug\netcoreapp3.1\Intelutions.Entities.pdb
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.csproj.CoreCompileInputs.cache
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.csproj.CopyComplete
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.dll
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.pdb
+C:\Users\Emanuel\source\repos\Intelutions\Intelutions.Data\obj\Debug\netcoreapp3.1\Intelutions.Data.genruntimeconfig.cache
