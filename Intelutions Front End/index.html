@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelutions Test</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <button type="button" class="btn btn-primary mt-2 mb-2" data-toggle="modal" data-target="#insertModal">
+                    <i class="fa fa-plus"></i> Crear Permiso
+                </button>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre Empleado</th>
+                            <th scope="col">Apellidos Empleado</th>
+                            <th scope="col">Tipo Permiso</th>
+                            <th scope="col">Fecha Permiso</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in info">
+                            <th scope="row">{{ item.id }}</th>
+                            <td>{{ item.nombreEmpleado }}</td>
+                            <td>{{ item.apellidosEmpleado }}</td>
+                            <td>{{ item.tipoPermiso }}</td>
+                            <td>{{ item.fechaPermiso | format }}</td>
+                            <td>
+                                <button type="button" title = "Actualizar Permiso" class="btn btn-primary " @click="modalUpdate(item)">
+                                    <i class="far fa-edit"></i>
+                                </button>
+                                <button type="button" title = "Borrar Permiso" class="btn btn-danger" @click="modalDelete(item.id)">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Modal Insert -->
+        <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="insertModalLabel">Ingresar Nuevo Permiso</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div v-if="errors.length" class="alert alert-danger" role="alert">
+                        <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
+                        <ul>
+                            <li v-for="error in errors">{{ error }}</li>
+                        </ul>
+                    </div>
+
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombreEmpleado">Nombre Empleado</label>
+                                <input type="text" class="form-control" id="nombreEmpleado" v-model="NombreEmpleado"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidosEmpleados">Apellidos Empleado</label>
+                                <input type="text" class="form-control" id="apellidosEmpleados"
+                                    v-model="ApellidosEmpleado" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoPermiso">Tipo Permiso</label>
+                                <input type="number" class="form-control" id="tipoPermiso" v-model.number="TipoPermiso"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaPermiso">Fecha Permiso</label>
+                                <input type="date" class="form-control" id="fechaPermiso" v-model="FechaPermiso"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary"
+                                v-on:click.prevent="insert(NombreEmpleado,ApellidosEmpleado,TipoPermiso,FechaPermiso)">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- <modal-update></modal-update> -->
+
+        <!-- Modal Update -->
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateModalLabel">Actualizar Permiso</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div v-if="editForm.errors.length" class="alert alert-danger" role="alert">
+                        <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
+                        <ul>
+                            <li v-for="error in editForm.errors">{{ error }}</li>
+                        </ul>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <input type="hidden" class="form-control" id="id" v-model="editForm.Id" required>
+                            <div class="form-group">
+                                <label for="nombreEmpleado">Nombre Empleado</label>
+                                <input type="text" class="form-control" id="nombreEmpleado"
+                                    v-model="editForm.NombreEmpleado" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidosEmpleados">Apellidos Empleado</label>
+                                <input type="text" class="form-control" id="apellidosEmpleados"
+                                    v-model="editForm.ApellidosEmpleado" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoPermiso">Tipo Permiso</label>
+                                <input type="number" class="form-control" id="tipoPermiso"
+                                    v-model.number="editForm.TipoPermiso" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaPermiso">Fecha Permiso</label>
+                                <input type="date" class="form-control" id="fechaPermiso"
+                                    v-model.date="editForm.FechaPermiso" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary"
+                                v-on:click.prevent="update(editForm.Id,editForm.NombreEmpleado,editForm.ApellidosEmpleado,editForm.TipoPermiso,editForm.FechaPermiso)">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Delete -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">¿Esta seguro que desea eliminar este Permiso?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form>
+                        <div class="modal-body text-center">
+                            <input type="hidden" class="form-control" id="id" v-model="deleteForm.Id" required>
+
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary" v-on:click.prevent="deleteData(deleteForm.Id)">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+<script src="app.js"></script>
+
+</html>
